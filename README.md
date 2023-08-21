@@ -1,16 +1,15 @@
 
 # Website for backpacking shops
-
-Assignment Java 6 của nhóm 3 cùng nhau thực hiện dự án <NDShop> - Website cho dân phượt.
+- Website bán đồ du lịch cho dân phượt.
 
 
 ## Languages and Tools:
 
-**Programming Languages:** Java Spring Boots + Thymeleaf
+**Programming Languages:** Java Spring Boots + Thymeleaf + Restful apis
 
 **Markup Languages:** HTML 
 
 **Stylesheets:** CSS *(Using bs5 as a framework)*
 
-**Script Languages:** JavaScript
+**Script Languages:** JavaScript, AngularJS, RouterJS
 
