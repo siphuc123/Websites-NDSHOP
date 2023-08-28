@@ -34,7 +34,8 @@ create table accounts
 	activated bit,
 )
 GO
-
+	
+-- tạo bảng chức vụ
 create table roles
 (
 	id varchar(10) primary key,
@@ -42,14 +43,15 @@ create table roles
 )
 go
 
+-- tạo bảng phân quyền
 create table authorities
 (
 	id int primary key identity,
 	username varchar(50) references accounts(username),
 	roleid varchar(10) references roles(id)
 )
-
 go 
+	
 -- tạo bảng sản phẩm
 create table products
 (
