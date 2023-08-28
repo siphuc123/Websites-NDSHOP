@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nhom3</groupId>
-	<artifactId>asmjava6</artifactId>
+	<artifactId>TravelWithNDShop</artifactId>
 	<version>1.0</version>
-	<name>asmjava6</name>
-	<description>sales website</description>
+	<name>TravelWithNDShop</name>
+	<description>sales website by Phuc and Nghiep</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
