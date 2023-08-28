@@ -1,0 +1,115 @@
+<!doctype html>
+<html xmlns="https://www.thymeleaf.org">
+
+<head>
+	<title>Title</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/css/header.css">
+	<!-- Bootstrap CSS v5.2.1 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<header class="bg-dark">
+		<div class="py-2">
+			<div class="row">
+				<div class="col d-flex justify-content-start align-items-center mot">
+					<form th:action="@{/product/search}">
+					<button type="submit" title="Search" class="icon bg-dark btn-search"><img th:src="@{/images/search1.png}"
+							src="/static/images/search1.png" alt="" class="nav-icon"></button>
+					<input name="key" class="search" type="text" placeholder="Search">
+					</form>
+				</div>
+				<div class="col text-center logo">
+					<a class="brand-logo" th:href="@{|/home|}"><img
+							th:src="@{/images/logoND1.png}" src="/static/images/logoND1.png" alt=""
+							class="logohome"><br>N
+						D S H O P</a>
+				</div>
+				<div class="col d-flex justify-content-end align-items-center hai">
+
+					<a href="" title="Thông báo" class="position-relative icon"><img th:src="@{/images/alarm.png}"
+							src="/static/images/alarm.png" alt="" class="nav-icon"> <span
+							class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+							2 <span class="visually-hidden">unread messages</span>
+						</span>
+					</a>
+
+					<th:block th:if="${#request.remoteUser}">
+						<a th:href="@{/cart/view}" title="Giỏ hàng" class="position-relative icon"><img
+								th:src="@{/images/shopping.png}" src="/static/images/shopping.png" alt=""
+								class=" nav-icon"><span
+								class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+								{{cart.count}} </span></a>
+					</th:block>
+
+					<div class="dropdown">
+						<a title="Ngôn ngữ" class="dropdown-toggle icon" href="#" role="button" id="dropdownMenuLink"
+							data-bs-toggle="dropdown" aria-expanded="false"><img th:src="@{/images/web.png}"
+								src="/static/images/vietnam.png" alt="" class="nav-icon"></a>
+
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<li><a href="?lang=vi" class="dropdown-item">Vietnamese</a></li>
+							<li><a href="?lang=en" class="dropdown-item">English</a></li>
+						</ul>
+					</div>
+
+					<div class="dropdown">
+						<a class="dropdown-toggle icon" href="#" role="button" id="dropdownMenuLink"
+							data-bs-toggle="dropdown" aria-expanded="false"><img th:src="@{/images/account.png}" alt=""
+								src="/static/images/account.png" class="nav-icon"></a>
+
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<th:block th:if="${#request.remoteUser}">
+								<li th:if="${#request.isUserInRole('dire') or #request.isUserInRole('staf')}"><a class="dropdown-item" th:href="@{/admin}" th:text="#{nav.admin}"></a></li>
+								<li><a class="dropdown-item" th:href="@{/order/list}" th:text="#{nav.listOrder}"></a>
+								<li><a class="dropdown-item" th:href="@{/editProfile}" th:text="#{nav.editProfile}"></a>
+								</li>
+								<li><a class="dropdown-item" th:href="@{/forgotPassword}"
+										th:text="#{nav.forgotPassword}"></a></li>
+								<li><a class="dropdown-item" th:href="@{/security/logout}" th:text="#{nav.logout}"></a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li class="text-center" id="account">[[${#request.remoteUser}]]</li>
+							</th:block>
+							<th:block th:unless="${#request.remoteUser}">
+								<li><a class="dropdown-item" th:href="@{/register}" th:text="#{nav.register}"></a></li>
+								<li><a class="dropdown-item" th:href="@{/security/login}" th:text="#{nav.login}"></a>
+								</li>
+							</th:block>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="nav-scroller">
+			<nav class="nav d-flex justify-content-between">
+				<a class="p-2" th:href="@{|/home|}" th:text="#{nav.home}"></a>
+				<a class="p-2" th:href="@{|/product/list|}" th:text="#{nav.outstanding}"></a>
+				<a class="p-2" th:href="@{|/quan-ao|}" th:text="#{nav.clothes}"></a>
+				<a class="p-2" th:href="@{|/non-bao-hiem|}" th:text="#{nav.helmets}"></a>
+				<a class="p-2" th:href="@{|/balo|}" th:text="#{nav.bag}"></a>
+				<a class="p-2" th:href="@{|/gang-tay|}" th:text="#{nav.glove}"></a>
+				<a class="p-2" th:href="@{|/giay|}" th:text="#{nav.shoe}"></a>
+				<a class="p-2" th:href="@{|/phu-kien-khac|}" th:text="#{nav.other}"></a>
+			</nav>
+		</div>
+
+	</header>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+		</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+		integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+		</script>
+</body>
+
+</html>

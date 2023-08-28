@@ -1,0 +1,207 @@
+<!doctype html>
+<html xmlns="https://www.thymeleaf.org"
+	th:replace="~{/layout/layout.html :: areas(~{:: title}, ~{:: main})}">
+
+<head>
+<title>Home</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/css/carousel.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+<!-- Bootstrap CSS v5.2.1 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+
+</head>
+
+<body>
+	<main>
+		<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+					aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
+					aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
+					aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner">
+				<div class="home carousel-item active">
+					<img th:src="@{/images/banner8.jpg}" src="/static/images/banner8.jpg" alt="">
+					<div class="container">
+						<div class="carousel-caption text-end">
+							<h1 style="font-size: 50px;" th:text="#{bl.balo}">BALO</h1>
+							<p style="font-size: 20pt;" th:text="#{bl.firstpage}">Nó sẽ là trang bị vô cùng cần
+								thiết nếu bạn có một chuyến đi dài và xa.</p>
+							<p>
+								<a class="btn btn-lg btn-primary" href="#" th:text="#{bt.learnabout}">Tìm hiểu</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="home carousel-item">
+					<img th:src="@{/images/banner1.jpg}" src="/static/images/banner1.jpg" alt="">
+					<div class="container">
+						<div class="carousel-caption">
+							<h1 style="font-size: 50px;" th:text="#{id.helmets}">NÓN BẢO HIỂM</h1>
+							<p style="font-size: 20pt;" th:text="#{id.firstpage}">Trang bị không thể thiếu của
+								một chuyến đi.</p>
+							<p>
+								<a class="btn btn-lg btn-primary" href="#" th:text="#{bt.learnabout}">Tìm hiểu</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="home carousel-item">
+					<img th:src="@{/images/banner11.jpg}" src="/static/images/banner11.jpg" alt="">
+					<div class="container">
+						<div class="carousel-caption text-start">
+							<h1 style="font-size: 50px;" th:text="#{tt.fashion}">THỜI TRANG</h1>
+							<p style="font-size: 20pt;" th:text="#{tt.firstpage}">Bạn sẽ đẹp hơn và an toàn hơn
+								nếu bạn được trạng bị cả áo, quần, găng tay và giày chuyên dụng.</p>
+							<p>
+								<a class="btn btn-lg btn-primary" href="#" th:text="#{bt.learnabout}">Tìm hiểu</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
+				data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+					class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
+				data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
+					class="visually-hidden">Next</span>
+			</button>
+		</div>
+
+		<div class="container marketing">
+
+			<!-- Three columns of text below the carousel -->
+			<div class="row">
+				<div class="col-lg-4">
+					<img th:src="@{/images/mu6.png}" src="/static/images/mu6.png" alt=""
+						class="bd-placeholder-img rounded-circle" width="140" height="140"
+						style="border: 1px solid gray; padding: 10px;">
+					<h2 th:text="#{id.helmets}">Nón bảo hiểm</h2>
+					<div class="content">
+						<p th:text="#{id.content}">Chúng tôi có nhiều loại nón của nhiều hãng để lựa chọn
+							như: 1/2, 3/4, fullface,... Cam kết chính hãng!</p>
+					</div>
+					<p>
+						<a class="btn btn-info" href="#" th:text="#{bt.seedetails}">Xem chi tiết &raquo;</a>
+					</p>
+				</div>
+				<!-- /.col-lg-4 -->
+				<div class="col-lg-4">
+					<img th:src="@{/images/ao1.png}" src="/static/images/ao1.png" alt=""
+						class="bd-placeholder-img rounded-circle" width="140" height="140"
+						style="border: 1px solid gray; padding: 10px;">
+					<h2 th:text="#{tt.fashion}">Thời trang</h2>
+					<div class="content">
+						<p th:text="#{tt.content}">Quần áo đa dạng, nhiều kích cỡ và giá cả phù hợp với tất
+							cả các đối tượng.</p>
+					</div>
+					<p>
+						<a class="btn btn-info" href="#" th:text="#{bt.seedetails}">Xem chi tiết &raquo;</a>
+					</p>
+				</div>
+				<!-- /.col-lg-4 -->
+				<div class="col-lg-4">
+					<img th:src="@{/images/balo1.png}" src="/static/images/balo1.png" alt=""
+						class="bd-placeholder-img rounded-circle" width="140" height="140"
+						style="border: 1px solid gray; padding: 10px;">
+					<h2 th:text="#{bl.balo}">Balo</h2>
+					<div class="content">
+						<p th:text="#{bl.content}">Balo là trang bị không thể thiếu nếu bạn muốn đi phượt
+							đường dài. Tại đây chúng tôi có nhiều dòng balo để các bạn lựa chọn.</p>
+					</div>
+					<p>
+						<a class="btn btn-info" href="#" th:text="#{bt.seedetails}">Xem chi tiết &raquo;</a>
+					</p>
+				</div>
+				<!-- /.col-lg-4 -->
+			</div>
+			<!-- /.row -->
+
+
+			<!-- START THE FEATURETTES -->
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading" th:text="#{nd.helmets}">Một chiếc nón phù hợp.</h2>
+					<h2>
+						<span class="text-muted" th:text="#{nd.experience}"> Trải nghiệm của bạn sẽ X2</span>
+					</h2>
+
+					<p class="lead" th:text="#{nd.safe}">An toàn và thời thượng!</p>
+				</div>
+				<div class="col-md-5">
+					<img th:src="@{/images/mu3.png}" src="/static/images/mu3.png" alt=""
+						class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+						width="500" height="500">
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+			<div class="row featurette">
+				<div class="col-md-7 order-md-2">
+					<h2 class="featurette-heading" th:text="#{nd2.fashion}">Bạn muốn được trang bị từ đầu
+						đến chân.</h2>
+					<h2>
+						<span class="text-muted" th:text="#{nd2.arrive}"> Thì hãy đến với chúng tôi!</span>
+					</h2>
+					<p class="lead" th:text="#{nd2.diversity}">Đa dạng và hợp lí</p>
+				</div>
+				<div class="col-md-5 order-md-1">
+					<img th:src="@{/images/ao2.png}" src="/static/images/ao2.png" alt=""
+						class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+						width="500" height="500">
+				</div>
+			</div>
+			<hr class="featurette-divider">
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading" th:text="#{nd3.balo}">Đồ nhiều ư, đừng lo!</h2>
+					<h2>
+						<span class="text-muted" th:text="#{nd3.content}"> Chúng tôi có những chiếc balo
+							có thể đựng cả thế giới 😁</span>
+					</h2>
+					<p class="lead" th:text="#{nd3.concise}">Gọn gàng và bền bỉ!</p>
+				</div>
+				<div class="col-md-5">
+					<img th:src="@{/images/balo.png}" src="/static/images/balo.png" alt=""
+						class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+						width="500" height="500">
+				</div>
+
+			</div>
+			<hr class="featurette-divider">
+		</div>
+	</main>
+
+	<!-- Bootstrap JavaScript Libraries -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+		crossorigin="anonymous">
+		
+	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+		integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+		crossorigin="anonymous">
+		
+	</script>
+</body>
+
+</html>

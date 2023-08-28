@@ -1,0 +1,109 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/layout.html :: areas(~{:: title}, ~{:: main})}">
+
+<head>
+	<title>Title</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- <link rel="stylesheet" href="/static/css/productDetail.css"> -->
+	<!-- Bootstrap CSS v5.2.1 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<main th:object="${item}">
+		<div class="productDetail container" >
+			<div class="image">
+				<div style="height: 90%;">
+					<img class="d-flex justify-content-between" th:src="@{|/images/*{image}|}" alt="">
+				</div>
+				<div style="height: 10%; padding: 5px 15px;">
+					<div class="d-flex justify-content-between align-items-center">
+						<p style="padding-top: 6px;">[[*{name}]]</p>
+						<div class="btn-group" sec:authorize="isAuthenticated()">
+							<button th:attr="ng-click=@{|cart.add(*{id})|}" class="btn btn-sm "
+								style="color: white; background-color: orange; margin-right: 3px;">Mua
+								ngay</button>
+							<a th:href="@{|/cart/add/*{id}|}" type="button" class="btn btn-sm"
+								style="color: black; background-color: skyblue;">Yêu thích ❤️</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="information">
+				<label class="mb-3">Giá: [[*{#numbers.formatInteger(price,3,'COMMA')}]] VND</label> <br>
+				<label class="mb-1">Kích cỡ:</label> <br>
+				<label class="form-check-label p-2" for="M"></label>
+				<input class="form-check-input" type="radio" name="size" id="M">
+				M
+				</label>
+				<label class="form-check-label p-2" for="L"></label>
+				<input class="form-check-input" type="radio" name="size" id="M">
+				L
+				</label>
+				<label class="form-check-label p-2" for="XL"></label>
+				<input class="form-check-input" type="radio" name="size" id="M">
+				XL
+				</label>
+				<label class="form-check-label p-2" for="XXL"></label>
+				<input class="form-check-input" type="radio" name="size" id="M">
+				XXL
+				</label>
+				<div style="margin-top: 20px;">
+					<h5 class="mb-3">Thông số chi tiết:</h5>
+					<table class="table border">
+						<tr>
+							<th scope="row">Thương hiệu:</th>
+							<td>Royal</td>
+						</tr>
+						<tr>
+							<th scope="row">Chất liệu:</th>
+							<td>Nhựa ABS</td>
+						</tr>
+						<tr>
+							<th scope="row">Xuất xứ:</th>
+							<td>Việt Nam</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="productOther">
+			<h5 style="margin: 10px 50px;">Sản phẩm cùng loại</h5>
+			<div class="section1">
+				<div class="lists d-flex">
+                    <div class="product" th:each="product: ${item.category.products}">
+                        <div class="card shadow-sm">
+                            <div class="product-image">
+                                <a th:href="@{|/product/detail/${product.id}|}"><img th:src="@{|/images/${product.image}|}" alt=""></a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">[[${product.name}]]</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    
+                                    <small class="price">
+                                        [[${#numbers.formatInteger(product.price,3,'COMMA')}]] VND
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+			</div>
+		</div>
+	</main>
+	<!-- Bootstrap JavaScript Libraries -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+		</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+		integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+		</script>
+</body>
+
+</html>

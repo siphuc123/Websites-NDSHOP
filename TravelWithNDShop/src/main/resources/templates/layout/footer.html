@@ -1,0 +1,61 @@
+<!doctype html>
+<html xmlns="https://www.thymeleaf.org">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/footer.css">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <a href="#" id="back" title="Back to top"><img th:src="@{/images/back-to-top.png}"
+            src="/static/images/back-to-top.png" alt="" class="rounded-circle"></a>
+    <footer class="text-muted">
+        <div>
+            <div class="row">
+                <div class="col-sm-7" style="padding-right: 80px; padding-top: 25px">
+                    <h4 class="text-white" th:text="#{f.welcome}"></h4>
+                    <p class="text-muted" th:text="#{f.introduce}"></p>
+                </div>
+                <div class="col-sm-2 py-4 follow">
+                    <h4 class="text-white" th:text="#{f.follow}"></h4>
+                    <a href="#" class="text-white text-decoration-none"><img th:src="@{/images/youtube.png}"
+                            src="/static/images/youtube.png" alt="" width="30px"></a> <a href="#"
+                        class="text-white text-decoration-none"><img th:src="@{/images/facebook1.png}"
+                            src="/static/images/facebook1.png" alt="" width="30px"></a> <a href="#"
+                        class="text-white text-decoration-none"><img th:src="@{/images/tik-tok.png}"
+                            src="/static/images/tik-tok.png" alt="" width="30px"></a>
+
+                </div>
+                <div class="col-sm-3 py-4">
+                    <h4 class="text-white" th:text="#{f.contact}"></h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Website:
+                                https://ndshop.com.vn</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Hotline:
+                                19001009</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Email:
+                                nghiepdvps20385@fpt.edu.vn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+</body>
+
+</html>

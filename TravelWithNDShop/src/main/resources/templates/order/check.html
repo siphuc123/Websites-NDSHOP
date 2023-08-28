@@ -1,0 +1,115 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/layout.html :: areas(~{:: title}, ~{:: main})}">
+
+<head>
+    <title>Check</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/thanhtoan.css">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <main>
+        <div class="box-check">
+            <div th:replace="~{/cart/view::shopping-cart}"></div>
+            <!-- <div class="dssp">
+				<h4>Danh sách sản phẩm</h4>
+				<br>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col" colspan="2">Sản phẩm</th>
+							<th scope="col">Màu sắc</th>
+							<th scope="col">Kích thước</th>
+							<th scope="col">Số lượng</th>
+							<th scope="col" style="text-align: right;">Giá tiền</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="item" items="${list}">
+							<tr>
+								<td style="width: 60px;"><img src="../images/${item.product.image}"
+									alt="" width="80px"></td>
+								<td>${item.product.name}</td>
+								<td>Hồng</td>
+								<td class="text-center">XXL</td>
+								<td class="text-center">${item.quantity}</td>
+								<td class="price"><fmt:formatNumber value="${item.price}"
+										pattern="#,###"></fmt:formatNumber></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div> -->
+            <div class="information">
+                <form>
+                    <h4>Vui lòng nhập thông tin để đặt hàng</h4>
+                    <label class="form-label"><b>Họ và tên:</b> </label> <br>
+                    <label class="input name" id="username">[[${#request.remoteUser}]]</label>
+                    <label class="form-label gender"><b>Giới tính: </b> </label>
+                    <label class="form-check-label male" for="nam">
+                        <input class="form-check-input radio" type="radio" id="nam" checked> Nam</label>
+                    <label class="form-check-label female" for="nu">
+                        <input class="form-check-input radio" type="radio" id="nu">Nữ </label> <br>
+                    <label for="" class="form-label"><b>Số điện thoại:</b></label> <br>
+                    <input type="text" class="input phone"> <br> <br>
+                    <label class="form-label ship"><b>Hình thức nhận hàng:</b> </label>
+                    <label class="form-check-label athome" for="athome">
+                        <input class="form-check-input radio" type="radio" id="athome" checked>
+                        Nhận tại nhà </label>
+                    <label class="form-check-label atshop" for="atshop">
+                        <input class="form-check-input radio" type="radio" id="atshop">
+                        Nhận tại shop </label> <br>
+                    <label for="" class="form-label"><b>Địa chỉ nhận hàng:</b></label>
+                    <span>
+                        (Bỏ qua nếu chọn hình thức nhận hàng tại shop)
+                    </span> <br>
+                    <textarea class="form-control address" rows="3"
+                        ng-model="order.address"></textarea>
+                    <label for="" class="form-label"><b>Phương thức thanh toán</b></label> <br>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Thanh toán khi nhận hàng</option>
+                        <option value="1">Thanh toán bằng tài khoản ngân hàng</option>
+                        <option value="2">Thanh toán bằng ví Momo</option>
+                        <option value="3">Thanh toán bằng ví ZaloPay</option>
+                    </select>
+                    <div class="input-group mb-3 discount">
+                        <input type="text" class="form-control" placeholder="Nhập mã giảm giá"
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Áp dụng</button>
+                    </div>
+                    <br> <span style="font-size: 14pt;">Tổng tiền: </span> <span class="float-end"
+                        style="color: rgb(32, 126, 240); font-size: 13pt; font-weight: bold;">{{cart.amount | number}} VND</span> <br>
+                    <span style="font-size: 14pt;">Phí vận chuyển: </span> <span class="float-end"
+                        style="color: rgb(32, 126, 240); font-size: 13pt; font-weight: bold;">30,000
+                        VND</span> <br> <span style="font-size: 14pt;">Giảm giá: </span> <span class="float-end"
+                        style="color: rgb(32, 126, 240); font-size: 13pt; font-weight: bold;">0
+                        VND</span> <br> <span style="font-size: 14pt;">Thanh toán: </span> <span class="float-end"
+                        style="color: rgb(32, 126, 240); font-size: 13pt; font-weight: bold;">{{cart.amount + 30000 | number}} VND</span><br><br>
+                    <button class="btn btn-primary" ng-click="order.purchase()" style="width: 100%; font-size: 15pt;">ĐẶT
+                        HÀNG</button>
+                    <p class="dieukhoan">
+                        Nhấn "ĐẶT HÀNG" đồng nghĩa với việc bạn đồng ý tuân theo <a href=""
+                            style="text-decoration: none;">Điều khoản của NDSHOP</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+    </main>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

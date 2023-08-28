@@ -1,0 +1,182 @@
+<!doctype html>
+<html xmlns="https://www.thymeleaf.org" th:replace="~{/layout/layout.html :: areas(~{:: title}, ~{:: main})}">
+
+<head>
+    <title>Home</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/static/css/carousel.css">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <main>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="home carousel-item active">
+                    <img th:src="@{/images/banner8.jpg}" src="/static/images/banner8.jpg" alt="">
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1 style="font-size: 50px;">BAG</h1>
+                            <p style="font-size: 20pt;">It will be an extremely necessary equipment if you have a long and long trip.</p>
+                            <p>
+                                <a class="btn btn-lg btn-primary" href="#">Learn more</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="home carousel-item">
+                    <img th:src="@{/images/banner1.jpg}" src="/static/images/banner1.jpg" alt="">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1 style="font-size: 50px;">HELMETS</h1>
+                            <p style="font-size: 20pt;">Indispensable equipment for a trip.</p>
+                            <p>
+                                <a class="btn btn-lg btn-primary" href="#">Learn more</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="home carousel-item">
+                    <img th:src="@{/images/banner11.jpg}" src="/static/images/banner11.jpg" alt="">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1 style="font-size: 50px;">FASHION</h1>
+                            <p style="font-size: 20pt;">You will be more beautiful and safer if you are equipped with a special shirt, pants, gloves and shoes.</p>
+                            <p>
+                                <a class="btn btn-lg btn-primary" href="#">Learn more</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="container marketing">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img th:src="@{/images/mu6.png}" src="/static/images/mu6.png" alt=""
+                        class="bd-placeholder-img rounded-circle" width="140" height="140"
+                        style="border: 1px solid gray; padding: 10px;">
+                    <h2>Helmets</h2>
+                    <div class="content">
+                        <p>We have a variety of helmets of many brands for you to choose from: 1/2, 3/4, fullface,... Guaranteed genuine!</p>
+                    </div>
+                    <p>
+                        <a class="btn btn-info" href="#">View details &raquo;</a>
+                    </p>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img th:src="@{/images/ao1.png}" src="/static/images/ao1.png" alt=""
+                        class="bd-placeholder-img rounded-circle" width="140" height="140"
+                        style="border: 1px solid gray; padding: 10px;">
+                    <h2>Fashion</h2>
+                    <div class="content">
+                        <p>Clothing variety, many sizes and prices suitable for all audiences.</p>
+                    </div>
+                    <p>
+                        <a class="btn btn-info" href="#">View details &raquo;</a>
+                    </p>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img th:src="@{/images/balo1.png}" src="/static/images/balo1.png" alt=""
+                        class="bd-placeholder-img rounded-circle" width="140" height="140"
+                        style="border: 1px solid gray; padding: 10px;">
+                    <h2>Bag</h2>
+                    <div class="content">
+                        <p>Backpacks are indispensable luggage if you want to go on a long trip. We have a variety of backpacks for you to choose from.</p>
+                    </div>
+                    <p>
+                        <a class="btn btn-info" href="#">View details &raquo;</a>
+                    </p>
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">
+                        A suitable helmet. <span class="text-muted"> Your experience will be X2</span>
+                    </h2>
+                    <p class="lead">Safe and trendy!</p>
+                </div>
+                <div class="col-md-5">
+                    <img th:src="@{/images/mu3.png}" src="/static/images/mu3.png" alt=""
+                        class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                        height="500">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading">
+                        You want to be equipped from head to toe.<span class="text-muted">
+                            Please come with us!</span>
+                    </h2>
+                    <p class="lead">Diversity and reasonable</p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img th:src="@{/images/ao2.png}" src="/static/images/ao2.png" alt=""
+                        class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                        height="500">
+                </div>
+            </div>
+            <hr class="featurette-divider">
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">
+                        Lots of stuff, don't worry!<span class="text-muted">We have backpacks that can hold the world 😁</span>
+                    </h2>
+                    <p class="lead">Neat and durable!</p>
+                </div>
+                <div class="col-md-5">
+                    <img th:src="@{/images/balo.png}" src="/static/images/balo.png" alt=""
+                        class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                        height="500">
+                </div>
+
+            </div>
+            <hr class="featurette-divider">
+        </div>
+    </main>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
