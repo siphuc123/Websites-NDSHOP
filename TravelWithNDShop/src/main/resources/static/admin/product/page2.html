@@ -1,0 +1,204 @@
+<head>
+<meta charset="UTF-8">
+</head>
+<body id="page-top" xmlns="http://www.thymeleaf.org">
+	<div id="wrapper">
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div id=content>
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+					<div class="row ">
+						<div class="col-md-12 px-1">
+							<div class="panel-heading fw-bold p-2 mb-2 text-wrap badge bg-dark">
+								<span class="fw-bolder text-info">Admin / Quản lý sản phẩm</span>
+							</div>
+							<section id="tabs" class="project-tab">
+								<div class="row">
+									<div class="col-md-12 border rounded">
+										<nav>
+											<ul class="nav nav-tabs nav-fill" id="nav-tab" role="tablist" id="myTab">
+												<li class="tabs_product nav-item" id="nav-home-tab" role="tab"
+													aria-controls="nav-home" aria-selected="true"><a href="#nav-edit"
+													class="nav-link active" data-bs-toggle="tab"> Edit Product </a></li>
+												<li class="tabs_product nav-item" id="nav-profile-tab" role="tab"
+													aria-controls="nav-profile" aria-selected="false"><a href="#nav-list"
+													class="nav-link" data-bs-toggle="tab"> List Product </a></li>
+											</ul>
+										</nav>
+										<div class="tab-content" id="nav-tabContent">
+											<div class="tab-pane fade show active" id="nav-edit" role="tabpanel"
+												aria-labelledby="nav-edit-tab">
+												<form>
+													<div class="p-3 row">
+														<div class="col-sm-4 text-center">
+															<label for="image"> <img title="Ảnh minh họa"
+																ng-src="{{'/images/' + form.image}}" style="max-width: 100%; height: 200px">
+															</label>
+														</div>
+														<div class="col-sm-8">
+															<div class="row">
+																<div class="form-group col-sm-6">
+																	<label for="NAME" class="me-3 form-label">Tên Sản phẩm:</label> <input
+																		id="NAME" ng-model="form.name" placeholder="Tên của sản phẩm?"
+																		required="required" class="form-control" />
+																</div>
+																<div class="form-group col-sm-6">
+																	<label for="PRICE" class="me-3 form-label">Giá Sản phẩm:</label> <input
+																		id="PRICE" ng-model="form.price" type="text" required="required"
+																		class="form-control" />
+																</div>
+
+															</div>
+															<div class="row mt-2">
+																<div class="form-group col-sm-6">
+																	<label for="image" class="me-3 form-label">Ảnh minh họa:</label> <input
+																		id="image" type="file" required="required"
+																		class="border p-1 border-secondary bg-white w-100 rounded"
+																		onchange="angular.element(this).scope().imageChanged(this.files)" />
+																</div>
+																<div class="form-group col-sm-6">
+																	<label for="CATEGORY_ID" class="me-3 form-label"> Thuộc thể loại:</label> <select
+																		id="CATEGORY_ID" ng-model="form.category.id" required="required"
+																		class="form-control form-select">
+																		<option ng-repeat="c in cates" ng-value="c.id">{{c.name}}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="row mt-2">
+																<div class="form-group col-sm-6">
+																	<label for="DATE" class="me-3 form-label">Ngày tạo: </label> <input id="DATE"
+																		ng-model="form.createDate" type="date" required="required"
+																		class="form-control" />
+																</div>
+																<div class="form-group col-sm-6">
+																	<label for="available" class="me-3 form-label">Available?</label>
+																	<div class="form-control">
+																		<label class="me-3 form-label"> <input
+																			ng-model="form.available" ng-value="true" name="available" type="radio">Yes
+																		</label> <label class="radio-inline" style="margin-left: 10px"> <input style="margin-left: 10px"
+																			ng-model="form.available" ng-value="false" name="available" type="radio">No
+																		</label>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="d-flex bg-secondary p-3 rounded-pill my-1"
+														style="justify-content: space-evenly;">
+														<button class="btn btn-success rounded-pill border border-3" ng-click="create()">Create</button>
+														<button class="btn btn-warning rounded-pill border border-3" ng-click="update()">Update</button>
+														<a class="btn btn-danger rounded-pill border border-3" ng-click="delete(form)">Delete</a>
+														<a class="btn btn-dark text-white rounded-pill border border-3"
+															ng-click="reset()">Reset</a>
+													</div>
+												</form>
+											</div>
+											<div class="tab-pane fade p-3 border border-4 border-info" id="nav-list"
+												role="tabpanel" aria-labelledby="nav-list-tab">
+
+												<div class="d-flex mb-3" style="justify-content: space-between;">
+
+													<form action="/admin/product/search" method="post" class="col-12 d-flex"
+														style="justify-content: flex-end;">
+														<input name="keywords" th:value="${keywords}" style="margin-right: 20px;"
+															placeholder="Nhập thứ muốn tìm..." class="col-lg-4 col-md-6">
+														<div>
+															<!-- <a class="btn btn-info text-decoration" th:href="@{/admin/product/search-and-page}">
+																		Search</a> -->
+															<button th:formaction="@{/admin/product/search}" class="btn btn-success me-3">Tìm
+																kiếm</button>
+														</div>
+													</form>
+												</div>
+
+												<div class="row">
+
+													<div class="col-12 table-wrap">
+														<table border="1" style="width: 100%; font-size: 15px"
+															class="table table-striped-columns table-bordered border-warning table-info text-dark">
+															<thead class="bg-dark">
+																<tr>
+																	<th class="text-center"><a
+																		class="d-flex justify-content-center text-warning">ID</a></th>
+																	<th class="text-center"><a
+																		class="d-flex justify-content-center text-warning">Name</a></th>
+																	<th class="text-center"><a
+																		class="d-flex justify-content-center text-warning">Price</a></th>
+																	<th class="text-center w-25"><a
+																		class="d-flex justify-content-center text-warning">Date</a></th>
+																	<th class="text-center w-25"><a
+																		class="d-flex justify-content-center text-warning">Image</a></th>
+																	<th class="text-center w-25"><a
+																		class="d-flex justify-content-center text-warning">Category</a></th>
+																	<th class="text-center w-25"><a
+																		class="d-flex justify-content-center text-warning">Available?</a></th>
+																	<th class="text-center"><a href="#"
+																		class="d-flex justify-content-center text-warning">Action</a></th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr ng-repeat="item in pager.items">
+																	<td class="text-center">{{item.id}}</td>
+																	<td class="w-25">{{item.name}}</td>
+																	<td class="text-center">{{item.price | number:1}}</td>
+																	<td class="text-center">{{item.createDate | date:'dd-MM-yyyy'}}</td>
+																	<td class="text-center">{{item.image}}</td>
+																	<td class="text-center">{{item.category.name}}</td>
+																	<td class="text-center">{{item.available?'Yes':'No'}}</td>
+																	<td class="text-center"><a ng-click="edit(item)"
+																		class="text-decoration-none"> <span title="Nhấn để thay đổi thông tin."
+																			class="badge p-2 bg-dark text-warning d-inline 
+																					d-flex justify-content-center">
+																				Edit </span>
+																	</a> <b>-</b> <a ng-click="delete(item)" class="text-decoration-none"> <span
+																			title="Nhấn để xóa mặt hàng."
+																			class="badge p-2 bg-dark d-inline 
+																					d-flex justify-content-center">
+																				<i class="fas fa-solid fa-trash-can text-danger"></i>
+																		</span>
+																	</a></td>
+																</tr>
+															</tbody>
+														</table>
+														<div class="d-flex pt-3" style="justify-content: center">
+															<nav aria-label="Page">
+																<ul class="pagination pagination-circle">
+																	<li class="page-item mx-2"><a
+																		class="page-link btn btn-warning border border-2 rounded-3 border-dark"
+																		ng-click="pager.first()">First</a></li>
+																	<li class="page-item mx-2"><a
+																		class="page-link btn btn-warning border border-2 rounded-3 border-dark"
+																		ng-click="pager.previous()">Previous</a></li>
+																	<li class="page-item mx-2"><a
+																		class="page-link btn btn-info border border-2 rounded-3 border-success">
+																			{{pager.page+1}} / {{pager.count}}</a></li>
+																	<li class="page-item mx-2"><a
+																		class="page-link btn btn-warning border border-2 rounded-3 border-dark"
+																		ng-click="pager.next()">Next</a></li>
+																	<li class="page-item mx-2"><a
+																		class="page-link btn btn-warning border border-2 rounded-3 border-dark"
+																		ng-click="pager.last()">Last</a></li>
+																</ul>
+															</nav>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap JavaScript Libraries -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+		integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+		crossorigin="anonymous">
+		
+	</script>
+</body>

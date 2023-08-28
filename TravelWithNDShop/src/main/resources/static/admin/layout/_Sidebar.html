@@ -1,0 +1,97 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion"
+	id="accordionSidebar" style="height: 100%" xmlns="http://www.thymeleaf.org"> 
+
+	<!-- Sidebar - Brand -->
+	<a 
+		class="sidebar-brand d-flex align-items-center justify-content-center"
+		href="/admin">
+		<div class="sidebar-brand-icon ">
+			<img src="../../images/logoND1.png" alt="" width="45" height="40"
+				class="d-inline-block auto">
+		</div>
+		<div class="sidebar-brand-text mx-3">
+			Quản lý <sup>admin</sup>
+		</div>
+	</a>
+
+	<!-- Divider -->
+	<hr class="sidebar-divider my-0">
+
+	<!-- Nav Item - Dashboard -->
+	<li class="nav-item"><a class="nav-link"
+		href="/admin"> <i
+			class="fas fa-fw fa-solid fa-table-list"></i> <span>Home (thống kê chung)</span>
+	</a></li>
+
+	<!-- Divider -->
+	<hr class="sidebar-divider">
+
+	<!-- Heading -->
+	<div class="sidebar-heading">Quản lý chính</div>
+
+	<!-- Nav Item - Product Collapse Menu th:href="@{/admin/product/page}"-->
+	<li class="nav-item"><a class="nav-link" href="#!product"> <i
+			class="fas fa-regular fa-fw fa-solid fa-motorcycle"></i> <span>
+				Sản phẩm</span>
+	</a></li>
+
+	<!-- Nav Item - Category Collapse Menu -->
+	<li class="nav-item"><a class="nav-link"
+		href="#!account"> <i
+			class="fas fa-sharp fa-solid fa-user fa-regular"></i> <span>Tài khoản</span>
+	</a></li>
+
+	<!-- Nav Item - Account Collapse Menu-->
+	<li class="nav-item"><a class="nav-link" href="#!authorize"> <i
+			class="fas fa-solid fa-person"></i> <span>Phân quyền nhân viên</span>
+	</a></li>
+
+	<!-- Nav Item - Order Collapse Menu -->
+	<li class="nav-item"><a class="nav-link"
+		href="/admin/report/submit-order"> <i
+			class="fas fa-solid fa-exclamation"></i> <span>Đơn hàng cần xử</span>
+	</a></li>
+
+	<!-- Divider -->
+	<hr class="sidebar-divider">
+
+	<!-- Heading -->
+	<div class="sidebar-heading">Thống kê</div>
+
+	<!-- Nav Item - Report 1 -->
+	<li class="nav-item"><a class="nav-link"
+		href="/admin/inventory-by-category"> <i
+			class="fas fa-solid fa-shop"></i> <span>Sản phẩm tồn kho</span>
+	</a></li>
+
+	<!-- Nav Item - Report 2 -->
+	<li class="nav-item"><a class="nav-link"
+		href="/admin/inventory-by-order"> <i
+			class="fas fa-soild fa-truck-fast"></i> <span>Lượt mua sản
+				phẩm</span>
+	</a></li>
+
+	<!-- Nav Item - Report 3 -->
+	<li class="nav-item"><a class="nav-link"
+		href="/admin/inventory-by-order-month"> <i
+			class="fas fa-regular fa-clipboard"></i> <span>Đơn hàng theo
+				tháng</span>
+	</a></li>
+	
+	<!-- Divider :: Nút thu gọn sidebar ở đây -->
+	<!-- <hr class="sidebar-divider">
+	
+	<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div> -->
+
+	<!-- Divider -->
+	<hr class="sidebar-divider">
+
+	<a href="/home"
+		class="nav-item d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+		<i class="fas fa-home fa-sm text-white-50"></i> Trở về trang mua hàng.
+	</a>
+</ul>
+<!-- End of Sidebar -->

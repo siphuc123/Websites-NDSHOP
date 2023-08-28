@@ -1,0 +1,170 @@
+<body id="page-top">
+	<div id="wrapper">
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div id=content>
+				<!-- Begin Page Content -->
+				<div class="container-fluid mb-5">
+					<div class="row ">
+						<div class="col-md-12 px-1 pt-2">
+							<div class="panel-heading fw-bold p-2 mb-2 text-wrap badge bg-dark">
+								<span class="fw-bolder text-success">Admin / Quản lý tài khoản</span>
+							</div>
+
+							<section id="tabs" class="project-tab">
+								<div class="row">
+									<div class="col-md-12">
+										<nav>
+											<ul class="nav nav-tabs nav-fill" id="nav-tab" role="tablist" id="myTab">
+												<li class="tabs_product nav-item" id="nav-home-tab" role="tab"
+													aria-controls="nav-home" aria-selected="true"><a href="#nav-edit"
+													class="nav-link active" data-bs-toggle="tab"> Edit Account </a></li>
+												<li class="tabs_product nav-item" id="nav-profile-tab" role="tab"
+													aria-controls="nav-profile" aria-selected="false"><a href="#nav-list"
+													class="nav-link" data-bs-toggle="tab"> List Account </a></li>
+											</ul>
+										</nav>
+										<div class="tab-content" id="nav-tabContent">
+											<div class="tab-pane fade show active" id="nav-edit" role="tabpanel"
+												aria-labelledby="nav-edit-tab">
+												<form>
+													<div class="p-3 border border-4 border-success rounded">
+														<div class="col-12">
+															<label for="USER" class="me-3 form-label">Username:</label> <input id="USER"
+																ng-model="form.username" placeholder="Tên tài khoản?" class="form-control"
+																required="required" />
+														</div>
+														<div class="col-12 mt-2">
+															<label for="NAME" class="me-3 form-label">Tên đầy đủ:</label> <input id="NAME"
+																ng-model="form.fullname" placeholder="Tên người dùng?" required="required"
+																class="form-control" />
+														</div>
+														<div class="col-12 mt-2">
+															<label for="PASS" class="me-3 form-label">Mật khẩu:</label> <input id="PASS"
+																ng-model="form.password" placeholder="Mật khẩu?" required="required"
+																class="form-control" />
+														</div>
+														<div class="col-12 mt-2">
+															<label for="EMAIL" class="me-3 form-label">Email:</label> <input id="EMAIL"
+																ng-model="form.email" placeholder="Nhập Email người dùng" required="required"
+																class="form-control" />
+														</div>
+														<div class="col-12 mt-2 row">
+															<div class="col-6">
+																<label for="PHOTO" class="me-3 form-label">Ảnh đại diện:</label> <input
+																	id="PHOTO" onchange="angular.element(this).scope().imageChanged(this.files)"
+																	placeholder="Chọn ảnh đại diện cho người dùng" required="required"
+																	class="border p-1 border-secondary bg-white w-100 rounded" type="file" />
+															</div>
+															<div class="data col-6 mt-2">
+																<h4>Kích hoạt:</h4>
+																<div style="color: black;">
+																	<input type="radio" ng-model="form.activated" ng-value="true" name="activated"
+																		id="ACTIVE" /> <label for="ACTIVE" style="margin-right: 20px;">Yes</label> <input type="radio"
+																		ng-model="form.activated" ng-value="false" name="activated" id="UNACTIVE"
+																		class="ms-3" value="0" /> <label for="UNACTIVE">No</label>
+																</div>
+															</div>
+															
+														</div>
+													</div>
+
+													<div class="d-flex bg-secondary p-3 rounded-3 mt-1"
+														style="justify-content: space-evenly;">
+														<button class="btn btn-success rounded-pill border border-3" ng-click="create()">Create</button>
+														<button class="btn btn-warning rounded-pill border border-3" ng-click="update()">Update</button>
+														<a class="btn btn-danger rounded-pill border border-3" ng-click="delete(form)">Delete</a>
+														<a class="btn btn-dark text-white rounded-pill border border-3"
+															ng-click="reset()">Reset</a>
+													</div>
+												</form>
+											</div>
+											<div class="tab-pane fade p-3 border border-4 border-info" id="nav-list"
+												role="tabpanel" aria-labelledby="nav-list-tab">
+												<!-- Chức năng sắp xếp -->
+												<!-- <div class="d-flex mb-3" style="justify-content: space-between;">
+													<h6 class="mb-0 p-3">
+														<span class="text-muted">Sắp xếp:</span> <a href="#"
+															class="text-body text-decoration-none"> <b>[[${field}]]</b> <i
+															class="fas fa-angle-down mt-1"></i>
+														</a>
+													</h6>
+												</div> -->
+
+												<div class="row">
+
+													<div class="col-md-12">
+														<table border="1" style="width: 100%; font-size: 15px"
+															class="table table-striped-columns table-bordered border-warning table-success text-dark">
+															<thead class="bg-dark">
+																<tr>
+																	<th class="text-center"><a class="d-flex justify-content-center text-warning">Username</a></th>
+																	<th class="text-center"><a class="d-flex justify-content-center text-warning">Fullname</a></th>
+																	<th class="text-center"><a class="d-flex justify-content-center text-warning">Password</a></th>
+																	<th class="text-center"><a class="d-flex justify-content-center text-warning">Email</a></th>
+																	<th class="text-center"><a class="d-flex justify-content-center text-warning">Photo</a></th>
+																	<th class="text-center"><a class="d-flex justify-content-center text-warning">is
+																			Activate?</a></th>
+																	<th class="text-center"><a href="#" class="d-flex justify-content-center text-warning">Action</a></th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr ng-repeat="item in pager.items">
+																	<td class="text-center">{{item.username}}</td>
+																	<td>{{item.fullname}}</td>
+																	<td>{{item.password}}</td>
+																	<td>{{item.email}}</td>
+																	<td>{{item.photo}}</td>
+																	<td>{{item.activated? 'On':'Off'}}</td>
+																	<td class="text-center"><a ng-click="edit(item)"
+																		class="text-decoration-none"> <span title="Nhấn để thay đổi thông tin."
+																			class="badge p-2 bg-dark text-warning d-inline 
+																					d-flex justify-content-center">
+																				Edit </span>
+																	</a> <b>-</b> <a ng-click="delete(item)" class="text-decoration-none"> <span
+																			title="Nhấn để xóa mặt hàng."
+																			class="badge p-2 bg-dark d-inline 
+																					d-flex justify-content-center">
+																				<i class="fas fa-solid fa-trash-can text-danger"></i>
+																		</span>
+																	</a></td>
+																</tr>
+															</tbody>
+														</table>
+														<div class="d-flex pt-3" style="justify-content: center">
+															<nav aria-label="Page">
+																<ul class="pagination pagination-circle">
+																	<li class="page-item mx-2"><a
+																		class="page-link btn btn-warning border border-2 rounded-3 border-dark"
+																		ng-click="pager.first()">First</a></li>
+																	<li class="page-item mx-2"><a
+																		class="page-link btn btn-warning border border-2 rounded-3 border-dark"
+																		ng-click="pager.previous()">Previous</a></li>
+																	<li class="page-item mx-2"><a
+																		class="page-link btn btn-info border border-2 rounded-3 border-success">
+																			{{pager.page+1}} / {{pager.count}}</a></li>
+																	<li class="page-item mx-2"><a
+																		class="page-link btn btn-warning border border-2 rounded-3 border-dark"
+																		ng-click="pager.next()">Next</a></li>
+																	<li class="page-item mx-2"><a
+																		class="page-link btn btn-warning border border-2 rounded-3 border-dark"
+																		ng-click="pager.last()">Last</a></li>
+																</ul>
+															</nav>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

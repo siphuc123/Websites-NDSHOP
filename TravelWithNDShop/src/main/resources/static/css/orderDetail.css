@@ -1,0 +1,21 @@
+.form-oderDetail{
+    width: 80%;
+    margin: auto;
+    padding: 50px;
+}
+
+table.orderDetail{
+    margin: 20px 0;
+    background-color: white;
+}
+.inf-check{
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+.inf-customer{
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+}

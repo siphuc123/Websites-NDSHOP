@@ -1,0 +1,24 @@
+<head>
+<meta charset="UTF-8">
+</head>
+<div class="panel panel-default">
+	<div
+		class="panel-heading fw-bold p-2 text-wrap badge bg-dark text-warning">ADMIN / AUTHORITY
+		- Phân quyền cho users</div>
+	<table class="table table-border table-hover border-warning">
+		<thead class="bg-dark text-warning" style="font-variant: small-caps;">
+			<tr>
+				<th>Tên tài khoản</th>
+				<th ng-repeat="role in roles" class="text-center">{{role.name}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="acc in admins">
+				<td>{{acc.fullname}}</td>
+				<th ng-repeat="role in roles" class="text-center"><input
+					ng-checked="authority_of(acc,role)"
+					ng-click="authority_changed(acc,role)" type="checkbox"></th>
+			</tr>
+		</tbody>
+	</table>
+</div>
